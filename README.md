@@ -8,12 +8,12 @@
 	* 
 
 ## MemberForm component
-	* contained its own component state hook properties to manage component form elements.
-	* Edit button is used to load App member object into local component member object.
-	* React form, input
-	* __Yup validation without Formik.__
-	* React state hook validation error warning.
-	* Javascript Button disabled errorState and isDirty toggle.
+* contained its own component state hook properties to manage component form elements.
+* Edit button is used to load App member object into local component member object.
+* React form, input
+__Yup validation without Formik.__
+* React state hook validation error warning.
+* Javascript Button disabled errorState and isDirty toggle.
 
 ## MemberList component
 	* demonstrate Material-Ui Grid, Card, CardHeader, CardContent, Typography.
