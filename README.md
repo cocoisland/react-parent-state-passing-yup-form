@@ -1,11 +1,11 @@
 
-## App component
+## App component - demonstrate component properties and methods passing between components.
 * contains App memberList state hook properties for list of memberList objects.
 * contains App member state hook object for temporary object transfer from MemberList component to MemberForm component. 
 * memberList objects are passed down to MemberList component to display.
 * when an object from memberList is selected from MemberList component, the object is copied into App member state hook object, which is ready to be edit by clicking on the Edit button from MemberList component.
 * new member created in MemberForm are submitted from MemberForm to be appended into App memberList state hook object lists.
-	* 
+* 
 
 ## MemberForm component
 * contained its own component state hook properties to manage component form elements.
@@ -13,7 +13,7 @@
 * React form, input
 * __Yup validation without Formik.__
 * React state hook validation error warning.
-* Javascript Button disabled errorState and isDirty toggle.
+* **Javascript Button disabled Submit and Edit buttons**
 
 ## MemberList component
 * demonstrate Material-Ui Grid, Card, CardHeader, CardContent, Typography.
