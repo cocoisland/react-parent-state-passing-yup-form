@@ -11,7 +11,7 @@
 	* contained its own component state hook properties to manage component form elements.
 	* Edit button is used to load App member object into local component member object.
 	* React form, input
-	* **Yup validation without Formik.**
+	* __Yup validation without Formik.__
 	* React state hook validation error warning.
 	* Javascript Button disabled errorState and isDirty toggle.
 
