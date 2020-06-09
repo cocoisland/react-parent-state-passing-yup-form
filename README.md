@@ -1,5 +1,6 @@
 
 # Demonstrate parent App component passing state hook object and supporting functions between parent and children components.
+![Team building App](./parent-child-state.png)
 
 ## App parent component
 * contains App memberList state hook properties for list of memberList objects.
