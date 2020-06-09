@@ -34,14 +34,13 @@ function App() {
 //same as above, append newmember to list 
 //  }
 
-  const resetAppMember = () => {
-    setMember({name:'',email:'', role:''})
-  }
-
   function appFunc() {
     return {
       addMemberToList: function(newFormMember) {
         setMemberList([...memberList, newFormMember])
+      },
+      inputAppMember: function(child) {
+        setMember({...member, [child.name]:child.value })
       },
       resetAppMember: function() {
         setMember({name:'',email:'', role:''})

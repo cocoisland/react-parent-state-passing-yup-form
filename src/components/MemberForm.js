@@ -13,11 +13,6 @@ const formSchema = yup.object().shape({
 })
 
 const MemberForm = (props) => {
-    const [member, setMember] = useState({
-        name: "",
-        email: "",
-        role: "",
-    });
 
     const [errorState, setErrorState] = useState({
         name: "",
@@ -30,7 +25,7 @@ const MemberForm = (props) => {
         email: false,
         role: false
     });
-
+    
     const errorCheck = (
         errorState.name !== '' ||
         errorState.email !== '' ||
@@ -42,11 +37,7 @@ const MemberForm = (props) => {
         isDirty.role 
     )
 
-    //console.log('isDirtyCheck', isDirtyCheck)
     const submitIsDisabled = errorCheck || !isDirtyCheck;
-    
-
-    const editIsDisabled = props.appMember.name === '';
 
     const validate = (e) => {
         yup.reach(formSchema, e.target.name)
@@ -57,7 +48,6 @@ const MemberForm = (props) => {
                 })
             })
             .catch( err => {
-                //console.log('here err', err.errors[0])
                 setErrorState({
                     ...errorState, [e.target.name]: err.errors[0]
                 })
@@ -66,12 +56,9 @@ const MemberForm = (props) => {
 
     const inputChange = (e) => {
         setIsDirty({...isDirty, [e.target.name]: true})
-        //props.updateMember(e.target)
-        setMember({
-            ...member,
-            // square bracket "[]" -> key of key-value pair
-            [e.target.name] : e.target.value
-        });
+       
+        var f = props.appFunc()
+        f.inputAppMember(e.target)
     } 
 
     const blurHandler = (e) => {
@@ -86,25 +73,19 @@ const MemberForm = (props) => {
         e.preventDefault()     
         // addMember from Apps.js
         var f= props.appFunc()
-        f.addMemberToList(member)
-        //props.addMemberToList(member);
-        // reset the form field to new clear upon button submit
+        f.addMemberToList(props.appMember)
+
         resetHandler(e)
     }
 
     const resetHandler = (e) => {
         e.preventDefault()
-        setMember({name:'', email:'', role:''})
-        setErrorState({name:'', email:'', role:''})
-        setIsDirty(false)
-    }
-
-    const editHandler = (e) => {
-        e.preventDefault()
-        setMember(props.appMember)
-        //props.resetAppMember()
+        
         var f=props.appFunc()
         f.resetAppMember()
+    
+        setErrorState({name:'', email:'', role:''})
+        setIsDirty(false)
     }
     
     return ( 
@@ -120,7 +101,7 @@ const MemberForm = (props) => {
             name='name'
             type='text'
             placeholder='Please Enter Your Name...'
-            value={member.name}
+            value={props.appMember.name}
             onBlur={ blurHandler }
             onChange={ inputChange }
         />
@@ -135,7 +116,7 @@ const MemberForm = (props) => {
             name='email'
             type='text'
             placeholder='Email...'
-            value={member.email}
+            value={props.appMember.email}
             onBlur={ blurHandler }
             onChange={ inputChange }
         />
@@ -149,21 +130,18 @@ const MemberForm = (props) => {
             name='role'
             type='text'
             placeholder='Role...'
-            value={member.role}
+            value={props.appMember.role}
             onBlur={ blurHandler }
             onChange={ inputChange }
         />
         {errorState.role.length > 0 ? <span className='errMsg'>{errorState.role}</span>
             : null}
         </label>
-<p></p>
+        <p></p>
         <Button variant='contained' color='primary'
         disabled={submitIsDisabled} type='submit'>Submit</Button>
 
         <Button onClick={resetHandler} >Reset</Button>
-        <Button disabled={editIsDisabled} color='secondary'
-             onClick={editHandler }>Edit</Button>
-        
         </form>
 
         

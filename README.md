@@ -8,12 +8,11 @@
 * 
 
 ## MemberForm component
-* contained its own component state hook properties to manage component form elements.
-* Edit button is used to load App member object into local component member object.
+* used parent App state hook properties to manage component form elements.
 * React form, input
 * __Yup validation without Formik.__
 * React state hook validation error warning.
-* **Javascript Button disabled Submit and Edit buttons**
+* **Javascript Button disabled Submit **
 
 ## MemberList component
 * demonstrate Material-Ui Grid, Card, CardHeader, CardContent, Typography.
